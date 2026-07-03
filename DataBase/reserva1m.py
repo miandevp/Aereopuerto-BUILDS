@@ -2,22 +2,12 @@
 # Generador de datos para la tabla RESERVA.
 #
 # Atributos:
-# - id_reserva (PK, autogenerado por PostgreSQL)
+# - id_reserva (PK)
 # - dni_pasajero (FK -> PASAJERO)
-# - estado
-# - numero_asiento
 # - fecha
+# - estado
+# - numero
 # - clase
-#
-# El DNI debe existir previamente en la tabla PASAJERO.
-#
-# Cambiar TOTAL_RESERVAS para generar distintos tamaños:
-# 1_000
-# 10_000
-# 100_000
-# 1_000_000
-#
-# En este proyecto se generan 2 millones de reservas.
 #
 # El archivo CSV se genera SIN CABECERA.
 # Se guarda automáticamente en la carpeta Data/.
@@ -55,27 +45,29 @@ with open("Data/reservas.csv", "w", newline="", encoding="utf-8") as archivo:
 
     for i in range(TOTAL_RESERVAS):
 
-        # Solo DNIs existentes en PASAJERO
+        id_reserva = i + 1
+
         dni_pasajero = str(random.randint(70000000, 71999999))
-
-        estado = random.choice(estados)
-
-        fila = random.randint(1, 40)
-        letra = random.choice(["A", "B", "C", "D", "E", "F"])
-        numero_asiento = f"{fila}{letra}"
 
         fecha = (
             fecha_inicio +
             timedelta(days=random.randint(0, dias))
         ).strftime("%Y-%m-%d")
 
+        estado = random.choice(estados)
+
+        fila = random.randint(1, 40)
+        letra = random.choice(["A", "B", "C", "D", "E", "F"])
+        numero = f"{fila}{letra}"
+
         clase = random.choice(clases)
 
         writer.writerow([
+            id_reserva,
             dni_pasajero,
-            estado,
-            numero_asiento,
             fecha,
+            estado,
+            numero,
             clase
         ])
 

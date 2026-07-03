@@ -96,8 +96,8 @@ with open("Data/pasajeros.csv", "w", newline="", encoding="utf-8") as archivo:
             dni_pasajero,
             nombre,
             apellido,
-            telefono,
-            nacionalidad
+            nacionalidad,
+            telefono
         ])
 
         if (i + 1) % 100000 == 0:

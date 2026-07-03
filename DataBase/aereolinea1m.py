@@ -4,14 +4,10 @@
 # Atributos:
 # - codigo_icao (PK)
 # - nombre
-# - telefono
 # - pais_origen
+# - telefono
 #
-# El código ICAO es la clave primaria y debe ser único para
-# identificar cada aerolínea.
-#
-# Cantidad recomendada:
-# 200 aerolíneas (suficiente para un aeropuerto internacional).
+# El código ICAO es la clave primaria y debe ser único.
 #
 # El archivo CSV se genera SIN CABECERA.
 # Se guarda automáticamente en la carpeta Data/.
@@ -60,9 +56,9 @@ with open("Data/aerolineas.csv", "w", newline="", encoding="utf-8") as archivo:
 
     for _ in range(TOTAL_AEROLINEAS):
 
-        # Generar un código ICAO único de 3 letras
+        # Código ICAO único de 4 letras
         while True:
-            codigo_icao = "".join(random.choices(string.ascii_uppercase, k=3))
+            codigo_icao = "".join(random.choices(string.ascii_uppercase, k=4))
             if codigo_icao not in codigos_usados:
                 codigos_usados.add(codigo_icao)
                 break
@@ -79,8 +75,8 @@ with open("Data/aerolineas.csv", "w", newline="", encoding="utf-8") as archivo:
         writer.writerow([
             codigo_icao,
             nombre,
-            telefono,
-            pais
+            pais,
+            telefono
         ])
 
 print(f"Se generaron {TOTAL_AEROLINEAS} aerolíneas correctamente.")

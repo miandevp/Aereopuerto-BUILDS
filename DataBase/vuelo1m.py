@@ -6,23 +6,10 @@
 # - codigo_icao (FK -> AEROLINEA)
 # - origen
 # - destino
-# - estado
+# - fecha
 # - hora_salida
 # - hora_llegada
-#
-# El código ICAO debe existir previamente en la tabla
-# AEROLINEA.
-#
-# Cambiar TOTAL_VUELOS para generar distintos tamaños:
-# 1_000
-# 10_000
-# 100_000
-# 1_000_000
-#
-# En este proyecto se generan 2 millones de vuelos.
-#
-# El archivo CSV se genera SIN CABECERA.
-# Se guarda automáticamente en la carpeta Data/.
+# - estado
 # ==========================================================
 
 import csv
@@ -34,11 +21,11 @@ TOTAL_VUELOS = 2_000_000
 
 os.makedirs("Data", exist_ok=True)
 
-# Leer códigos ICAO existentes
 icaos = []
 
 with open("Data/aerolineas.csv", encoding="utf-8") as f:
     reader = csv.reader(f)
+
     for fila in reader:
         icaos.append(fila[0])
 
@@ -48,6 +35,8 @@ aeropuertos = [
     "JFK","LAX","MIA","ORD","ATL","MAD","BCN","CDG",
     "FCO","LHR","FRA","NRT","ICN","SYD","YYZ"
 ]
+
+otros_aeropuertos = [a for a in aeropuertos if a != "LIM"]
 
 estados = [
     "Programado",
@@ -76,11 +65,12 @@ with open("Data/vuelos.csv", "w", newline="", encoding="utf-8") as archivo:
                 codigos.add(codigo_vuelo)
                 break
 
-        origen = random.choice(aeropuertos)
-
-        destino = random.choice(aeropuertos)
-        while destino == origen:
-            destino = random.choice(aeropuertos)
+        if random.random() < 0.5:
+            origen = "LIM"
+            destino = random.choice(otros_aeropuertos)
+        else:
+            origen = random.choice(otros_aeropuertos)
+            destino = "LIM"
 
         estado = random.choice(estados)
 
@@ -97,14 +87,19 @@ with open("Data/vuelos.csv", "w", newline="", encoding="utf-8") as archivo:
             minutes=random.randint(0, 59)
         )
 
+        fecha = salida.strftime("%Y-%m-%d")
+        hora_salida = salida.strftime("%H:%M:%S")
+        hora_llegada = llegada.strftime("%H:%M:%S")
+
         writer.writerow([
             codigo_vuelo,
             codigo_icao,
             origen,
             destino,
-            estado,
-            salida.strftime("%Y-%m-%d %H:%M"),
-            llegada.strftime("%Y-%m-%d %H:%M")
+            fecha,
+            hora_salida,
+            hora_llegada,
+            estado
         ])
 
         if (i + 1) % 100000 == 0:
