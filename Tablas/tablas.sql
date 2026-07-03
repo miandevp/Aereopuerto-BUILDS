@@ -11,7 +11,7 @@ CREATE TABLE Reserva (
     dni_pasajero VARCHAR(20) REFERENCES Pasajero(dni_pasajero),
     fecha DATE,
     estado VARCHAR(30),
-    numero INTEGER,
+    numero VARCHAR(5),
     clase VARCHAR(30)
 );
 

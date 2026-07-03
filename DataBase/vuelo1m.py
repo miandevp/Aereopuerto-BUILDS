@@ -17,13 +17,13 @@ import os
 import random
 from datetime import datetime, timedelta
 
-TOTAL_VUELOS = 2_000_000
+TOTAL_VUELOS = 1_000
 
-os.makedirs("Data", exist_ok=True)
+os.makedirs("Data10k", exist_ok=True)
 
 icaos = []
 
-with open("Data/aerolineas.csv", encoding="utf-8") as f:
+with open("Data1k/aerolineas.csv", encoding="utf-8") as f:
     reader = csv.reader(f)
 
     for fila in reader:
@@ -49,7 +49,7 @@ estados = [
 
 codigos = set()
 
-with open("Data/vuelos.csv", "w", newline="", encoding="utf-8") as archivo:
+with open("Data1k/vuelos.csv", "w", newline="", encoding="utf-8") as archivo:
 
     writer = csv.writer(archivo)
 

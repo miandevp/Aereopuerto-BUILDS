@@ -10,7 +10,6 @@
 # - clase
 #
 # El archivo CSV se genera SIN CABECERA.
-# Se guarda automáticamente en la carpeta Data/.
 # ==========================================================
 
 import csv
@@ -18,9 +17,18 @@ import os
 import random
 from datetime import datetime, timedelta
 
-TOTAL_RESERVAS = 2_000_000
+TOTAL_RESERVAS = 1_000
 
-os.makedirs("Data", exist_ok=True)
+os.makedirs("Data1k", exist_ok=True)
+
+# Leer todos los pasajeros existentes
+pasajeros = []
+
+with open("Data1k/pasajeros.csv", encoding="utf-8") as f:
+    reader = csv.reader(f)
+
+    for fila in reader:
+        pasajeros.append(fila[0])
 
 estados = [
     "Pendiente",
@@ -39,7 +47,7 @@ fecha_fin = datetime(2026, 12, 31)
 
 dias = (fecha_fin - fecha_inicio).days
 
-with open("Data/reservas.csv", "w", newline="", encoding="utf-8") as archivo:
+with open("Data1k/reservas.csv", "w", newline="", encoding="utf-8") as archivo:
 
     writer = csv.writer(archivo)
 
@@ -47,7 +55,8 @@ with open("Data/reservas.csv", "w", newline="", encoding="utf-8") as archivo:
 
         id_reserva = i + 1
 
-        dni_pasajero = str(random.randint(70000000, 71999999))
+        # FK válida hacia PASAJERO
+        dni_pasajero = random.choice(pasajeros)
 
         fecha = (
             fecha_inicio +

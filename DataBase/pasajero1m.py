@@ -28,9 +28,9 @@ import os
 import random
 from faker import Faker
 
-TOTAL_PASAJEROS = 2_000_000
+TOTAL_PASAJEROS = 1_000
 
-os.makedirs("Data", exist_ok=True)
+os.makedirs("Data1k", exist_ok=True)
 
 fake = Faker([
     "es_ES",
@@ -80,7 +80,7 @@ nacionalidades = [
     "Egipcia"
 ]
 
-with open("Data/pasajeros.csv", "w", newline="", encoding="utf-8") as archivo:
+with open("Data1k/pasajeros.csv", "w", newline="", encoding="utf-8") as archivo:
 
     writer = csv.writer(archivo)
 

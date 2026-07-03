@@ -22,14 +22,14 @@ import csv
 import os
 import random
 
-TOTAL_ASIGNACIONES = 2_000_000
+TOTAL_ASIGNACIONES = 10_000
 
-os.makedirs("Data", exist_ok=True)
+os.makedirs("Data1k", exist_ok=True)
 
 # Leer los códigos de vuelo existentes
 vuelos = []
 
-with open("Data/vuelos.csv", encoding="utf-8") as f:
+with open("Data1k/vuelos.csv", encoding="utf-8") as f:
     reader = csv.reader(f)
 
     for fila in reader:
@@ -38,7 +38,7 @@ with open("Data/vuelos.csv", encoding="utf-8") as f:
 # Leer los números de puerta existentes
 puertas = []
 
-with open("Data/puertas_embarque.csv", encoding="utf-8") as f:
+with open("Data1k/puertas_embarque.csv", encoding="utf-8") as f:
     reader = csv.reader(f)
 
     for fila in reader:
@@ -47,7 +47,7 @@ with open("Data/puertas_embarque.csv", encoding="utf-8") as f:
 # Evitar relaciones repetidas
 asignaciones = set()
 
-with open("Data/asignado.csv", "w", newline="", encoding="utf-8") as archivo:
+with open("Data1k/asignado_puerta.csv", "w", newline="", encoding="utf-8") as archivo:
 
     writer = csv.writer(archivo)
 

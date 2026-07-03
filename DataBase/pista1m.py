@@ -24,7 +24,7 @@ import random
 
 TOTAL_PISTAS = 1_000
 
-os.makedirs("Data", exist_ok=True)
+os.makedirs("Data1k", exist_ok=True)
 
 estados = [
     "Disponible",
@@ -32,7 +32,7 @@ estados = [
     "Cerrada"
 ]
 
-with open("Data/pistas.csv", "w", newline="", encoding="utf-8") as archivo:
+with open("Data1k/pistas.csv", "w", newline="", encoding="utf-8") as archivo:
 
     writer = csv.writer(archivo)
 

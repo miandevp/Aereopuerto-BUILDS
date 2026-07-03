@@ -12,12 +12,12 @@ import csv
 import os
 import random
 
-os.makedirs("Data", exist_ok=True)
+os.makedirs("Data1k", exist_ok=True)
 
 # Leer todas las áreas
 areas = []
 
-with open("Data/areas.csv", encoding="utf-8") as f:
+with open("Data1k/areas.csv", encoding="utf-8") as f:
     reader = csv.reader(f)
 
     for fila in reader:
@@ -26,13 +26,13 @@ with open("Data/areas.csv", encoding="utf-8") as f:
 # Leer todos los empleados
 empleados = []
 
-with open("Data/empleados.csv", encoding="utf-8") as f:
+with open("Data1k/empleados.csv", encoding="utf-8") as f:
     reader = csv.reader(f)
 
     for fila in reader:
         empleados.append(fila[0])   # dni_empleado
 
-with open("Data/asignado.csv", "w", newline="", encoding="utf-8") as archivo:
+with open("Data1k/asignado_empleado.csv", "w", newline="", encoding="utf-8") as archivo:
 
     writer = csv.writer(archivo)
 

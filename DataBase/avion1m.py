@@ -26,14 +26,14 @@ import csv
 import os
 import random
 
-TOTAL_AVIONES = 10_000
+TOTAL_AVIONES = 1_000
 
-os.makedirs("Data", exist_ok=True)
+os.makedirs("Data1k", exist_ok=True)
 
 # Leer todos los códigos ICAO existentes
 icaos = []
 
-with open("Data/aerolineas.csv", "r", encoding="utf-8") as archivo:
+with open("Data1k/aerolineas.csv", "r", encoding="utf-8") as archivo:
     reader = csv.reader(archivo)
     for fila in reader:
         icaos.append(fila[0])
@@ -61,7 +61,7 @@ modelos = [
 
 matriculas = set()
 
-with open("Data/aviones.csv", "w", newline="", encoding="utf-8") as archivo:
+with open("Data1k/aviones.csv", "w", newline="", encoding="utf-8") as archivo:
 
     writer = csv.writer(archivo)
 

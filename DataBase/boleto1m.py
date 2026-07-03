@@ -21,20 +21,20 @@ import csv
 import os
 import random
 
-TOTAL_BOLETOS = 2_000_000
+TOTAL_BOLETOS = 1_000
 
-os.makedirs("Data", exist_ok=True)
+os.makedirs("Data1k", exist_ok=True)
 
 # Leer todos los códigos de vuelo existentes
 codigos_vuelo = []
 
-with open("Data/vuelos.csv", encoding="utf-8") as f:
+with open("Data1k/vuelos.csv", encoding="utf-8") as f:
     reader = csv.reader(f)
 
     for fila in reader:
         codigos_vuelo.append(fila[0])
 
-with open("Data/boletos.csv", "w", newline="", encoding="utf-8") as archivo:
+with open("Data1k/boletos.csv", "w", newline="", encoding="utf-8") as archivo:
 
     writer = csv.writer(archivo)
 

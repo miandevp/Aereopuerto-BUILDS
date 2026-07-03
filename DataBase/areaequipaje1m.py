@@ -13,10 +13,10 @@
 import csv
 import os
 
-os.makedirs("Data", exist_ok=True)
+os.makedirs("Data1k", exist_ok=True)
 
-with open("Data/areas.csv", encoding="utf-8") as padre, \
-     open("Data/area_equipaje.csv", "w", newline="", encoding="utf-8") as salida:
+with open("Data1k/areas.csv", encoding="utf-8") as padre, \
+     open("Data1k/area_equipaje.csv", "w", newline="", encoding="utf-8") as salida:
 
     reader = csv.reader(padre)
     writer = csv.writer(salida)

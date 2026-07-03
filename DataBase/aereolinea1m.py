@@ -23,7 +23,7 @@ fake = Faker()
 
 TOTAL_AEROLINEAS = 1000
 
-os.makedirs("Data", exist_ok=True)
+os.makedirs("Data1k", exist_ok=True)
 
 paises = {
     "Perú": "+51",
@@ -50,7 +50,7 @@ paises = {
 
 codigos_usados = set()
 
-with open("Data/aerolineas.csv", "w", newline="", encoding="utf-8") as archivo:
+with open("Data1k/aerolineas.csv", "w", newline="", encoding="utf-8") as archivo:
 
     writer = csv.writer(archivo)
 
@@ -79,4 +79,4 @@ with open("Data/aerolineas.csv", "w", newline="", encoding="utf-8") as archivo:
             telefono
         ])
 
-print(f"Se generaron {TOTAL_AEROLINEAS} aerolíneas correctamente.")
+print(f"Se generaron {TOTAL_AEROLINEAS} aerolineas correctamente.")

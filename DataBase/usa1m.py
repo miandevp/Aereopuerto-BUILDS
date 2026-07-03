@@ -22,14 +22,14 @@ import csv
 import os
 import random
 
-TOTAL_USOS = 2_000_000
+TOTAL_USOS = 1_000
 
-os.makedirs("Data", exist_ok=True)
+os.makedirs("Data1k", exist_ok=True)
 
 # Leer códigos de vuelo
 vuelos = []
 
-with open("Data/vuelos.csv", encoding="utf-8") as f:
+with open("Data1k/vuelos.csv", encoding="utf-8") as f:
     reader = csv.reader(f)
     for fila in reader:
         vuelos.append(fila[0])
@@ -37,14 +37,14 @@ with open("Data/vuelos.csv", encoding="utf-8") as f:
 # Leer números de pista
 pistas = []
 
-with open("Data/pistas.csv", encoding="utf-8") as f:
+with open("Data1k/pistas.csv", encoding="utf-8") as f:
     reader = csv.reader(f)
     for fila in reader:
         pistas.append(int(fila[0]))   # numero_pista
 
 usos = set()
 
-with open("Data/usa_pista.csv", "w", newline="", encoding="utf-8") as archivo:
+with open("Data1k/usa_pista.csv", "w", newline="", encoding="utf-8") as archivo:
 
     writer = csv.writer(archivo)
 

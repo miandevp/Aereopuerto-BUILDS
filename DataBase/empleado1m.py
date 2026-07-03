@@ -24,11 +24,11 @@ import os
 import random
 from faker import Faker
 
-TOTAL_EMPLEADOS = 100_000
+TOTAL_EMPLEADOS = 1_000
 
 fake = Faker("es_ES")
 
-os.makedirs("Data", exist_ok=True)
+os.makedirs("Data1k", exist_ok=True)
 
 cargos = [
     "Piloto",
@@ -56,7 +56,7 @@ turnos = [
 
 dnis = set()
 
-with open("Data/empleados.csv", "w", newline="", encoding="utf-8") as archivo:
+with open("Data1k/empleados.csv", "w", newline="", encoding="utf-8") as archivo:
 
     writer = csv.writer(archivo)
 

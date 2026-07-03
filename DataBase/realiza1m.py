@@ -15,12 +15,12 @@ import csv
 import random
 import os
 
-os.makedirs("Data", exist_ok=True)
+os.makedirs("Data1k", exist_ok=True)
 
 # Leer todas las matrículas de los aviones
 matriculas = []
 
-with open("Data/aviones.csv", encoding="utf-8") as f:
+with open("Data1k/aviones.csv", encoding="utf-8") as f:
     reader = csv.reader(f)
 
     for fila in reader:
@@ -28,8 +28,8 @@ with open("Data/aviones.csv", encoding="utf-8") as f:
 
 contador = 0
 
-with open("Data/vuelos.csv", encoding="utf-8") as vuelos, \
-     open("Data/realiza.csv", "w", newline="", encoding="utf-8") as salida:
+with open("Data1k/vuelos.csv", encoding="utf-8") as vuelos, \
+     open("Data1k/realiza.csv", "w", newline="", encoding="utf-8") as salida:
 
     reader = csv.reader(vuelos)
     writer = csv.writer(salida)

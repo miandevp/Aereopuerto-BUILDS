@@ -23,9 +23,9 @@ import random
 
 TOTAL_AREAS = 1_000
 
-os.makedirs("Data", exist_ok=True)
+os.makedirs("Data10k", exist_ok=True)
 
-with open("Data/areas.csv", "w", newline="", encoding="utf-8") as archivo:
+with open("Data1k/areas.csv", "w", newline="", encoding="utf-8") as archivo:
 
     writer = csv.writer(archivo)
 
@@ -42,4 +42,4 @@ with open("Data/areas.csv", "w", newline="", encoding="utf-8") as archivo:
         if (i + 1) % 100 == 0:
             print(f"Generadas: {i + 1:,} áreas")
 
-print(f"\nSe generaron {TOTAL_AREAS:,} áreas correctamente.")
+print(f"\nSe generaron {TOTAL_AREAS:,} areas correctamente.")

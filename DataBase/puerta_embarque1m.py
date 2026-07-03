@@ -26,12 +26,12 @@ import random
 
 TOTAL_PUERTAS = 1_000
 
-os.makedirs("Data", exist_ok=True)
+os.makedirs("Data1k", exist_ok=True)
 
 # Leer únicamente las áreas de embarque
 areas_embarque = []
 
-with open("Data/area_embarque.csv", encoding="utf-8") as f:
+with open("Data1k/area_embarque.csv", encoding="utf-8") as f:
     reader = csv.reader(f)
 
     for fila in reader:
@@ -43,7 +43,7 @@ estados = [
     "Mantenimiento"
 ]
 
-with open("Data/puertas_embarque.csv", "w", newline="", encoding="utf-8") as archivo:
+with open("Data1k/puertas_embarque.csv", "w", newline="", encoding="utf-8") as archivo:
 
     writer = csv.writer(archivo)
 
